@@ -1,0 +1,21 @@
+const createSlice = require("@reduxjs/toolkit").createSlice
+
+const initialState = {
+    numberOfCakes : 10
+}
+
+const cakeSlice = createSlice({
+    name : "cake",
+    initialState,
+    reducers : {
+        buyCake : (state)=>{
+            state.numberOfCakes--
+        },
+        restockCake: (state, action)=>{
+            state.numberOfCakes += action.payload
+        }
+    }
+})
+
+module.exports = cakeSlice.reducer//cakeSlice.reducer instead of cakeSlice.reducers . i think its because we would be accessing each individual reducer
+module.exports.cakeActions = cakeSlice.actions

@@ -1,0 +1,1 @@
+export const buyCake = "buy cake"
